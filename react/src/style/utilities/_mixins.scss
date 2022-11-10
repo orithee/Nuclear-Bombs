@@ -1,0 +1,48 @@
+@mixin heightWidth($height, $width) {
+  height: $height;
+  width: $width;
+}
+@mixin maxHeightWidth($height, $width) {
+  max-height: $height;
+  max-width: $width;
+}
+@mixin minHeightWidth($height, $width) {
+  min-height: $height;
+  min-width: $width;
+}
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+@mixin centerAbs() {
+  position: absolute;
+
+  @include posAbs(
+    50% !important,
+    50% !important,
+    auto !important,
+    auto !important
+  );
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-dir($jc, $ai, $dir: row) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jc;
+  align-items: $ai;
+}
+@mixin shadow-block() {
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+@mixin posAbs($top: null, $left: null, $right: null, $bottom: null) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  bottom: $bottom;
+  right: $right;
+}

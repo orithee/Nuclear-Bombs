@@ -1,0 +1,127 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+#error-message {
+  @include center();
+  flex-direction: column;
+  background-color: rgb(193, 147, 61);
+  width: auto;
+  height: auto;
+  min-width: 200px;
+  min-height: 200px;
+  padding: 15px;
+  border-radius: 10px;
+  position: fixed;
+  font-size: x-large;
+  color: black;
+  z-index: 1;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  border-radius: 1px solid black;
+  > h3 {
+    color: $button-color;
+    font-size: x-large;
+    text-decoration: underline;
+    margin-bottom: 5px;
+  }
+  > p {
+    margin-top: 0px;
+  }
+  > button {
+    position: absolute;
+    bottom: 10px;
+  }
+}
+
+#global-div {
+  @include center();
+  flex-direction: column;
+  justify-content: flex-start;
+  > h1 {
+    position: absolute;
+    top: 20px;
+    display: block;
+  }
+  #head-buttons {
+    position: absolute;
+    top: 90px;
+    #table-container {
+      margin-top: 10px;
+      @include center();
+      justify-content: center;
+      table {
+        padding: 10px;
+        background-color: #aea1a1b6;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+.form-field {
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.btn {
+  position: absolute;
+  bottom: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 0.4rem 2.5rem;
+  text-align: center;
+  background-color: #47ab11;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  font-size: 17px;
+}
+
+.display {
+  display: none !important;
+  background-color: #47ab11;
+}
+
+.loading {
+  height: 100px;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in;
+}
+
+.loading.show {
+  opacity: 1;
+}
+
+.ball {
+  background-color: #777;
+  border-radius: 50%;
+  margin: 5px;
+  height: 20px;
+  width: 20px;
+  animation: jump 0.5s ease-in infinite;
+}
+
+.ball:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.ball:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes jump {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
